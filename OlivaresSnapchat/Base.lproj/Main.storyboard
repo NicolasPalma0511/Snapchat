@@ -1,24 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Iniciar Sesion View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="iniciarSesionViewController" customModule="OlivaresSnapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo" translatesAutoresizingMaskIntoConstraints="NO" id="eg8-o9-05w">
+                                <rect key="frame" x="132" y="74" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="CH4-oo-e0e"/>
+                                    <constraint firstAttribute="width" constant="150" id="Qci-Qg-vcE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rm8-oa-DVY">
+                                <rect key="frame" x="176" y="249" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ingrese su Usuario" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGW-jk-0Zh">
+                                <rect key="frame" x="107" y="295" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="CJR-Dg-5ip"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mma-ma-ZTY">
+                                <rect key="frame" x="160.5" y="354" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ingrese su contraseña" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pro-Jz-3PY">
+                                <rect key="frame" x="107" y="400" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="7K8-2f-H3t"/>
+                                </constraints>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSV-UN-qiu">
+                                <rect key="frame" x="107" y="464" width="200" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2Aa-H8-5Lh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Iniciar Sesion">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="iniciarSesionTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DmY-rf-hf6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eg8-o9-05w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="1yj-B8-zOn"/>
+                            <constraint firstItem="mma-ma-ZTY" firstAttribute="top" secondItem="eGW-jk-0Zh" secondAttribute="bottom" constant="25" id="5fm-Is-Yfc"/>
+                            <constraint firstItem="mma-ma-ZTY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CUr-iq-iuf"/>
+                            <constraint firstItem="rm8-oa-DVY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PGL-5e-Bmm"/>
+                            <constraint firstItem="eg8-o9-05w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R4N-0B-qEc"/>
+                            <constraint firstItem="Pro-Jz-3PY" firstAttribute="top" secondItem="mma-ma-ZTY" secondAttribute="bottom" constant="25" id="Yzp-sd-mB3"/>
+                            <constraint firstItem="rm8-oa-DVY" firstAttribute="top" secondItem="eg8-o9-05w" secondAttribute="bottom" constant="25" id="dao-Oh-u1l"/>
+                            <constraint firstItem="eGW-jk-0Zh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dkk-xR-aMo"/>
+                            <constraint firstItem="eGW-jk-0Zh" firstAttribute="top" secondItem="rm8-oa-DVY" secondAttribute="bottom" constant="25" id="hT3-F7-u2y"/>
+                            <constraint firstItem="Pro-Jz-3PY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ryQ-7h-DZa"/>
+                            <constraint firstItem="qSV-UN-qiu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w4n-1c-BQ5"/>
+                            <constraint firstItem="qSV-UN-qiu" firstAttribute="top" secondItem="Pro-Jz-3PY" secondAttribute="bottom" constant="30" id="w5z-yn-e1I"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="eGW-jk-0Zh" id="a6S-2H-hZl"/>
+                        <outlet property="passwordTextField" destination="Pro-Jz-3PY" id="T9q-qy-mWC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-10" y="48"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cyv-er-uyw">
+            <objects>
+                <viewController id="RrU-39-Leh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wp1-HH-cKU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9u5-U7-aB1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="up4-fR-BFH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Khk-ue-Olh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9pF-LN-udi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pSs-8B-IaH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Fy-pd-82X">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RrU-39-Leh" kind="relationship" relationship="rootViewController" id="Hth-bU-PcC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uS4-nF-OlJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="65"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fondo" width="360" height="360"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
