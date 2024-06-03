@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB6BBC22C0E5724004B5B8A /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB6BBC12C0E5724004B5B8A /* Snap.swift */; };
+		1EB6BBC42C0E5C9F004B5B8A /* VerSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB6BBC32C0E5C9F004B5B8A /* VerSnapViewController.swift */; };
 		5E637F982C0B81F700F789D1 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E637F972C0B81F700F789D1 /* Usuario.swift */; };
 		5EA9FBAD2BFBCE6500D5C4CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9FBAC2BFBCE6500D5C4CE /* AppDelegate.swift */; };
 		5EA9FBAF2BFBCE6500D5C4CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9FBAE2BFBCE6500D5C4CE /* SceneDelegate.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EB6BBC12C0E5724004B5B8A /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		1EB6BBC32C0E5C9F004B5B8A /* VerSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerSnapViewController.swift; sourceTree = "<group>"; };
 		5E637F972C0B81F700F789D1 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		5EA9FBA92BFBCE6500D5C4CE /* OlivaresSnapchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OlivaresSnapchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA9FBAC2BFBCE6500D5C4CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				5EC3C47F2C051CB400456BB3 /* ImagenViewController.swift */,
 				5EDA3E812C0ADF4F006E61F1 /* ElegirUsuarioViewController.swift */,
 				5EA9FBB02BFBCE6500D5C4CE /* iniciarSesionViewController.swift */,
+				1EB6BBC32C0E5C9F004B5B8A /* VerSnapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				5E637F972C0B81F700F789D1 /* Usuario.swift */,
+				1EB6BBC12C0E5724004B5B8A /* Snap.swift */,
 			);
 			path = Modelos;
 			sourceTree = "<group>";
@@ -263,9 +269,11 @@
 				5EC3C4802C051CB400456BB3 /* ImagenViewController.swift in Sources */,
 				5E637F982C0B81F700F789D1 /* Usuario.swift in Sources */,
 				5EA9FBB12BFBCE6500D5C4CE /* iniciarSesionViewController.swift in Sources */,
+				1EB6BBC42C0E5C9F004B5B8A /* VerSnapViewController.swift in Sources */,
 				5EA9FBAD2BFBCE6500D5C4CE /* AppDelegate.swift in Sources */,
 				5EA9FBAF2BFBCE6500D5C4CE /* SceneDelegate.swift in Sources */,
 				5EDA3E822C0ADF4F006E61F1 /* ElegirUsuarioViewController.swift in Sources */,
+				1EB6BBC22C0E5724004B5B8A /* Snap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

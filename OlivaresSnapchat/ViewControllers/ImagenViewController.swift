@@ -13,17 +13,43 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func elegirContactoTapped(_ sender: Any) {
         self.elegirContactoBoton.isEnabled = false
+        
         let imagenesFolder = Storage.storage().reference().child("imagenes")
-        let imagenData = imageView.image?.jpegData(compressionQuality: 0.50)
-        let cargarImagen = imagenesFolder.child("\(NSUUID().uuidString).jpg").putData(imagenData!, metadata: nil) { (metadata, error) in
-            if error != nil {
+        guard let imagenData = imageView.image?.jpegData(compressionQuality: 0.50) else {
+            self.mostrarAlerta(titulo: "Error", mensaje: "No se pudo obtener la imagen.", accion: "Aceptar")
+            self.elegirContactoBoton.isEnabled = true
+            return
+        }
+        
+        let cargarImagen = imagenesFolder.child("\(NSUUID().uuidString).jpg")
+        cargarImagen.putData(imagenData, metadata: nil) { (metadata, error) in
+            if let error = error {
                 self.mostrarAlerta(titulo: "Error", mensaje: "Se produjo un error al subir la imagen. Verifique su conexion a internet y vuelva a intentarlo.", accion: "Aceptar")
                 self.elegirContactoBoton.isEnabled = true
-                print("Ocurrio un error al subir imagen: \(error) ")
+                print("Ocurrió un error al subir imagen: \(error)")
+                return
             } else {
-                self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: nil)
+                cargarImagen.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        self.mostrarAlerta(titulo: "Error", mensaje: "Se produjo un error al obtener información de imagen.", accion: "Cancelar")
+                        self.elegirContactoBoton.isEnabled = true
+                        print("Ocurrió un error al obtener información de imagen: \(error)")
+                        return
+                    }
+                    
+                    guard let enlaceURL = url else {
+                        self.mostrarAlerta(titulo: "Error", mensaje: "No se pudo obtener la URL de la imagen.", accion: "Cancelar")
+                        self.elegirContactoBoton.isEnabled = true
+                        return
+                    }
+                    
+                    self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: enlaceURL.absoluteString)
+                })
             }
         }
+    }
+
+        /*
         let alertaCarga = UIAlertController(title: "Cargando Imagen...", message: "0%", preferredStyle: .alert)
         let progresoCarga: UIProgressView = UIProgressView(progressViewStyle: .default)
         cargarImagen.observe(.progress) { (snapshot) in
@@ -42,7 +68,7 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(alertaCarga, animated: true, completion: nil)
 
     }
-
+*/
 
     
     @IBOutlet weak var elegirContactoBoton: UIButton!
@@ -68,15 +94,12 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.delegate = self
         elegirContactoBoton.isEnabled = false
     }
-    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        let imagenesFolder = Storage.storage().reference().child("imagenes")
-        let imagenData = imageView.image?.jpegData(compressionQuality: 0.50)
-        imagenesFolder.child("imagenes.jpg").putData(imagenData!, metadata: nil) { (metadata, error) in
-            if error != nil {
-                print("Ocurrio un error al subir imagen: \(error) ")
-            }
-        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let siguienteVC = segue.destination as! ElegirUsuarioViewController
+        siguienteVC.imagenURL = sender as! String
+        siguienteVC.descrip = descripcionTextField.text!
     }
+
     func mostrarAlerta (titulo: String, mensaje: String, accion: String) {
         let alerta = UIAlertController (title: titulo, message: mensaje, preferredStyle: .alert)
         let btnCANCELOK = UIAlertAction (title: accion, style: .default, handler: nil)
